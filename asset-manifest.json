@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/jsp-signup/static/css/main.2894e4f6.chunk.css",
-    "main.js": "/jsp-signup/static/js/main.4139e32f.chunk.js",
-    "main.js.map": "/jsp-signup/static/js/main.4139e32f.chunk.js.map",
-    "runtime-main.js": "/jsp-signup/static/js/runtime-main.8e660fb0.js",
-    "runtime-main.js.map": "/jsp-signup/static/js/runtime-main.8e660fb0.js.map",
-    "static/js/2.8bbaac08.chunk.js": "/jsp-signup/static/js/2.8bbaac08.chunk.js",
-    "static/js/2.8bbaac08.chunk.js.map": "/jsp-signup/static/js/2.8bbaac08.chunk.js.map",
-    "index.html": "/jsp-signup/index.html",
-    "precache-manifest.bdefc1c2ad72fdac747634b73f8a2a0c.js": "/jsp-signup/precache-manifest.bdefc1c2ad72fdac747634b73f8a2a0c.js",
-    "service-worker.js": "/jsp-signup/service-worker.js",
-    "static/css/main.2894e4f6.chunk.css.map": "/jsp-signup/static/css/main.2894e4f6.chunk.css.map",
-    "static/js/2.8bbaac08.chunk.js.LICENSE.txt": "/jsp-signup/static/js/2.8bbaac08.chunk.js.LICENSE.txt"
+    "main.css": "/JSP-homework1-sighup/static/css/main.2894e4f6.chunk.css",
+    "main.js": "/JSP-homework1-sighup/static/js/main.c8a85fe0.chunk.js",
+    "main.js.map": "/JSP-homework1-sighup/static/js/main.c8a85fe0.chunk.js.map",
+    "runtime-main.js": "/JSP-homework1-sighup/static/js/runtime-main.7757a4fc.js",
+    "runtime-main.js.map": "/JSP-homework1-sighup/static/js/runtime-main.7757a4fc.js.map",
+    "static/js/2.8bbaac08.chunk.js": "/JSP-homework1-sighup/static/js/2.8bbaac08.chunk.js",
+    "static/js/2.8bbaac08.chunk.js.map": "/JSP-homework1-sighup/static/js/2.8bbaac08.chunk.js.map",
+    "index.html": "/JSP-homework1-sighup/index.html",
+    "precache-manifest.d8d3f25887019eada40299eab5d2242f.js": "/JSP-homework1-sighup/precache-manifest.d8d3f25887019eada40299eab5d2242f.js",
+    "service-worker.js": "/JSP-homework1-sighup/service-worker.js",
+    "static/css/main.2894e4f6.chunk.css.map": "/JSP-homework1-sighup/static/css/main.2894e4f6.chunk.css.map",
+    "static/js/2.8bbaac08.chunk.js.LICENSE.txt": "/JSP-homework1-sighup/static/js/2.8bbaac08.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8e660fb0.js",
+    "static/js/runtime-main.7757a4fc.js",
     "static/js/2.8bbaac08.chunk.js",
     "static/css/main.2894e4f6.chunk.css",
-    "static/js/main.4139e32f.chunk.js"
+    "static/js/main.c8a85fe0.chunk.js"
   ]
 }
