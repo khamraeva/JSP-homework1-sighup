@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Input from '../Input/Input';
 import './SignUp.css';
 
@@ -13,88 +13,92 @@ function validatePassword(password) {
 }
 
 function SignUp() {
+    // state = {
+        
+    // }
+
     const [formControls, setFormControls] = useState({
-        firstName: {
-            value: '',
-            label: 'First name',
-            type: 'text',
-            errorMessage: 'Please enter your name',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true
-            }
-        },
-        lastName: {
-            value: '',
-            label: 'Last name',
-            type: 'text',
-            errorMessage: 'Please enter your last name',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true
-            }
-        },
-        email: {
-            value: '',
-            type: 'email',
-            label: 'Email',
-            errorMessage: 'Please enter a valid email',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                email: true
-            }
-        },
-        password: {
-            value: '',
-            type: 'Password',
-            label: 'Password',
-            errorMessage: 'Your password needs to be 8-64 characters long and contain one uppercase letter and a number',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                password: true
-            }
-        },
-        confirmPassword: {
-            label: 'Confirm password',
-            type: 'password',
-            errorMessage: 'Please make sure your passwords match',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                checkPasswords: true
+            firstName: {
+                value: '',
+                label: 'First name',
+                type: 'text',
+                errorMessage: 'Please enter your name',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true
+                }
+            },
+            lastName: {
+                value: '',
+                label: 'Last name',
+                type: 'text',
+                errorMessage: 'Please enter your last name',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true
+                }
+            },
+            email: {
+                value: '',
+                type: 'email',
+                label: 'Email',
+                errorMessage: 'Please enter a valid email',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    email: true
+                }
+            },
+            password: {
+                value: '',
+                type: 'Password',
+                label: 'Password',
+                errorMessage: 'Your password needs to be 8-64 characters long and contain one uppercase letter and a number',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    password: true
+                }
+            },
+            confirmPassword: {
+                label: 'Confirm password',
+                type: 'password',
+                errorMessage: 'Please make sure your passwords match',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    checkPasswords: true
+                }
             }
         }
-    });
+    )
 
 
-    const submitHandler = event => {
+    submitHandler = event => {
         event.preventDefault();
     }
 
-    const onChangeHandler = (event, controlName) => {
-        const formControl = { ...formControls };
-
-        const control = { ...formControl[controlName] };
+    onChangeHandler = (event, controlName) => {
+        const formControls = { ...formControls };
+        const control = { ...formControls[controlName] };
 
         control.value = event.target.value;
         control.touched = true;
         control.valid = validateControl(control.value, control.validation);
 
-        formControl[controlName] = control;
-        
+        formControls[controlName] = control;
+
         setFormControls({
-            ...formControl
+            formControls
         });
     }
 
-    const validateControl = (value, validation) => {
+    validateControl(value, validation) {
         if (!validation) {
             return true;
         }
@@ -151,7 +155,7 @@ function SignUp() {
             </form>
         </div>
     )
-
 }
+
 
 export default SignUp

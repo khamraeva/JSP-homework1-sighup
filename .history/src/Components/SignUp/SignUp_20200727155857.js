@@ -73,14 +73,12 @@ function SignUp() {
         }
     });
 
-
     const submitHandler = event => {
         event.preventDefault();
     }
 
     const onChangeHandler = (event, controlName) => {
         const formControl = { ...formControls };
-
         const control = { ...formControl[controlName] };
 
         control.value = event.target.value;
@@ -88,9 +86,9 @@ function SignUp() {
         control.valid = validateControl(control.value, control.validation);
 
         formControl[controlName] = control;
-        
+
         setFormControls({
-            ...formControl
+            formControls
         });
     }
 

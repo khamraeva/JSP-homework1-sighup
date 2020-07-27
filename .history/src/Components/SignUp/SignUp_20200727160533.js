@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import Input from '../Input/Input';
 import './SignUp.css';
 
-function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+// function validateEmail(email) {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// }
 
-function validatePassword(password) {
-    const re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,64}/;
-    return re.test(password);
-}
+// function validatePassword(password) {
+//     const re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,64}/;
+//     return re.test(password);
+// }
 
 function SignUp() {
     const [formControls, setFormControls] = useState({
@@ -73,60 +73,58 @@ function SignUp() {
         }
     });
 
-
-    const submitHandler = event => {
-        event.preventDefault();
-    }
+    // const submitHandler = event => {
+    //     event.preventDefault();
+    // }
 
     const onChangeHandler = (event, controlName) => {
-        const formControl = { ...formControls };
-
-        const control = { ...formControl[controlName] };
+        const formControls = { ...formControls };
+        const control = { ...formControls[controlName] };
 
         control.value = event.target.value;
         control.touched = true;
         control.valid = validateControl(control.value, control.validation);
 
-        formControl[controlName] = control;
-        
+        formControls[controlName] = control;
+
         setFormControls({
-            ...formControl
+            formControls
         });
     }
 
-    const validateControl = (value, validation) => {
-        if (!validation) {
-            return true;
-        }
+    // const validateControl = (value, validation) => {
+    //     if (!validation) {
+    //         return true;
+    //     }
 
-        let isValid = true;
+    //     let isValid = true;
 
-        if (validation.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
+    //     if (validation.required) {
+    //         isValid = value.trim() !== '' && isValid;
+    //     }
 
-        if (validation.email) {
-            isValid = validateEmail(value) && isValid;
-        }
+    //     if (validation.email) {
+    //         isValid = validateEmail(value) && isValid;
+    //     }
 
-        if (validation.password) {
-            isValid = validatePassword(value) && isValid;
-        }
+    //     if (validation.password) {
+    //         isValid = validatePassword(value) && isValid;
+    //     }
 
-        if (validation.checkPasswords) {
-            const password = formControls.password.value;
-            const confirmPassword = value;
-            isValid = (password === confirmPassword) && isValid;
-        }
+    //     if (validation.checkPasswords) {
+    //         const password = formControls.password.value;
+    //         const confirmPassword = value;
+    //         isValid = (password === confirmPassword) && isValid;
+    //     }
 
-        return isValid;
-    }
+    //     return isValid;
+    // }
 
     return (
         <div className={'signup-container'}>
             <h1>Sign Up</h1>
             <form
-                onSubmit={submitHandler}
+                // onSubmit={submitHandler}
                 className={'signup-form'}>
                 {Object.keys(formControls).map((controlName, index) => {
                     const control = formControls[controlName];
@@ -140,7 +138,7 @@ function SignUp() {
                             label={control.label}
                             shouldValidate={!!control.validation}
                             errorMessage={control.errorMessage}
-                            onChange={event => onChangeHandler(event, controlName)}
+                            onChange={event => setFormControls(event, controlName)}
                         />
                     )
                 })

@@ -71,30 +71,28 @@ function SignUp() {
                 checkPasswords: true
             }
         }
-    });
+    })
 
-
-    const submitHandler = event => {
+    submitHandler = event => {
         event.preventDefault();
     }
 
-    const onChangeHandler = (event, controlName) => {
-        const formControl = { ...formControls };
-
-        const control = { ...formControl[controlName] };
+    onChangeHandler = (event, controlName) => {
+        const formControls = { ...formControls };
+        const control = { ...formControls[controlName] };
 
         control.value = event.target.value;
         control.touched = true;
         control.valid = validateControl(control.value, control.validation);
 
-        formControl[controlName] = control;
-        
+        formControls[controlName] = control;
+
         setFormControls({
-            ...formControl
+            formControls
         });
     }
 
-    const validateControl = (value, validation) => {
+    validateControl = (value, validation) => {
         if (!validation) {
             return true;
         }
@@ -114,13 +112,12 @@ function SignUp() {
         }
 
         if (validation.checkPasswords) {
-            const password = formControls.password.value;
-            const confirmPassword = value;
-            isValid = (password === confirmPassword) && isValid;
+            isValid = (value === formControls.password.value) && isValid;
         }
 
         return isValid;
     }
+
 
     return (
         <div className={'signup-container'}>

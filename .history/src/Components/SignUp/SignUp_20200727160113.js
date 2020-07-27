@@ -73,54 +73,52 @@ function SignUp() {
         }
     });
 
+    // const submitHandler = event => {
+    //     event.preventDefault();
+    // }
 
-    const submitHandler = event => {
-        event.preventDefault();
-    }
+    // const onChangeHandler = (event, controlName) => {
+    //     const formControls = { ...formControls };
+    //     const control = { ...formControls[controlName] };
 
-    const onChangeHandler = (event, controlName) => {
-        const formControl = { ...formControls };
+    //     control.value = event.target.value;
+    //     control.touched = true;
+    //     control.valid = validateControl(control.value, control.validation);
 
-        const control = { ...formControl[controlName] };
+    //     formControls[controlName] = control;
 
-        control.value = event.target.value;
-        control.touched = true;
-        control.valid = validateControl(control.value, control.validation);
+    //     setFormControls({
+    //         formControls
+    //     });
+    // }
 
-        formControl[controlName] = control;
-        
-        setFormControls({
-            ...formControl
-        });
-    }
+    // const validateControl = (value, validation) => {
+    //     if (!validation) {
+    //         return true;
+    //     }
 
-    const validateControl = (value, validation) => {
-        if (!validation) {
-            return true;
-        }
+    //     let isValid = true;
 
-        let isValid = true;
+    //     if (validation.required) {
+    //         isValid = value.trim() !== '' && isValid;
+    //     }
 
-        if (validation.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
+    //     if (validation.email) {
+    //         isValid = validateEmail(value) && isValid;
+    //     }
 
-        if (validation.email) {
-            isValid = validateEmail(value) && isValid;
-        }
+    //     if (validation.password) {
+    //         isValid = validatePassword(value) && isValid;
+    //     }
 
-        if (validation.password) {
-            isValid = validatePassword(value) && isValid;
-        }
+    //     if (validation.checkPasswords) {
+    //         const password = formControls.password.value;
+    //         const confirmPassword = value;
+    //         isValid = (password === confirmPassword) && isValid;
+    //     }
 
-        if (validation.checkPasswords) {
-            const password = formControls.password.value;
-            const confirmPassword = value;
-            isValid = (password === confirmPassword) && isValid;
-        }
-
-        return isValid;
-    }
+    //     return isValid;
+    // }
 
     return (
         <div className={'signup-container'}>

@@ -73,24 +73,22 @@ function SignUp() {
         }
     });
 
-
     const submitHandler = event => {
         event.preventDefault();
     }
 
     const onChangeHandler = (event, controlName) => {
-        const formControl = { ...formControls };
-
-        const control = { ...formControl[controlName] };
+        const formControls = { ...this.state.formControls };
+        const control = { ...formControls[controlName] };
 
         control.value = event.target.value;
         control.touched = true;
-        control.valid = validateControl(control.value, control.validation);
+        control.valid = this.validateControl(control.value, control.validation);
 
-        formControl[controlName] = control;
-        
-        setFormControls({
-            ...formControl
+        formControls[controlName] = control;
+
+        this.setState({
+            formControls
         });
     }
 
@@ -114,7 +112,7 @@ function SignUp() {
         }
 
         if (validation.checkPasswords) {
-            const password = formControls.password.value;
+            const password = this.state.formControls.password.value;
             const confirmPassword = value;
             isValid = (password === confirmPassword) && isValid;
         }
