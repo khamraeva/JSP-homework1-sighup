@@ -12,7 +12,7 @@ function validatePassword(password) {
     return re.test(password);
 }
 
-function SignUp() {
+const SignUp = () => {
     const [formControls, setFormControls] = useState({
         firstName: {
             value: '',
