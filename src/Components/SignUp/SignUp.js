@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from '../Input/Input';
+import axios from 'axios';
 import './SignUp.css';
 
 function validateEmail(email) {
@@ -14,7 +15,7 @@ function validatePassword(password) {
 
 const SignUp = () => {
 
-    const [fistName, setFirstName] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [firstNameTouched, setFirstNameTouched] = useState(false);
     const [fistNameValid, setFirstNameValid] = useState(false);
 
@@ -37,11 +38,12 @@ const SignUp = () => {
     const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
     const [confirmPasswordValid, setConfirmPasswordalid] = useState(false);
 
+    let isFormValid = (fistNameValid && lastNameValid && emailValid && passwordValid && confirmPasswordValid);
 
     const formControls = [
         {
             firstName: {
-                value: fistName,
+                value: firstName,
                 label: 'First name',
                 type: 'text',
                 errorMessage: 'Please enter your name',
@@ -146,7 +148,7 @@ const SignUp = () => {
     }
 
     const validateControl = (value, validation) => {
-        console.log(formControls[password.value]);
+
         if (!validation) {
             return true;
         }
@@ -170,6 +172,44 @@ const SignUp = () => {
         }
 
         return isValid;
+    }
+
+    const onSubmitHandler = async event => {
+        event.preventDefault();
+        const user = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "password": password
+        }
+        try {
+            let isDuplicate = false;
+
+            const response = await axios.get('http://localhost:3001/users/')
+            Object.keys(response.data).forEach((key, index) => {
+                const registeredUser = response.data[key];
+                if (registeredUser.firstName === user.firstName && registeredUser.lastName === user.lastName) {
+                    alert('user exist');
+                    isDuplicate = true;
+                } else if (registeredUser.email === user.email) {
+                    alert('email exist');
+                    isDuplicate = true;
+                }
+            })
+
+            if (!isDuplicate) {
+                await axios.post('http://localhost:3001/users/', user)
+            }
+
+        } catch (e) {
+            console.log(e)
+        }
+
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
     }
 
     return (
@@ -199,8 +239,11 @@ const SignUp = () => {
                     )
                 })
                 }
-                <div className='btn-wrapper'>
-                    <button>Submit</button>
+                <div className={'btn-wrapper'}>
+                    <button 
+                        onClick={onSubmitHandler}  
+                        disabled={!isFormValid}     
+                    >Submit</button>
                 </div>
             </form>
         </div>

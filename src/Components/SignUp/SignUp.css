@@ -48,3 +48,9 @@
 .btn-wrapper button:active {
         box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
     }
+
+button:disabled {
+    background: #ccc;
+    color: #000;
+    cursor: not-allowed;
+}
