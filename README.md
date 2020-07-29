@@ -1,7 +1,3 @@
-deploy:
-
-https://khamraeva.github.io/JSP-homework1-signup/
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
